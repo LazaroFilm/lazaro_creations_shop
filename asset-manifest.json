@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/lazaro_creations_shop/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/lazaro_creations_shop/static/js/main.0146f510.chunk.js",
+    "main.js.map": "/lazaro_creations_shop/static/js/main.0146f510.chunk.js.map",
+    "runtime-main.js": "/lazaro_creations_shop/static/js/runtime-main.4a889a3e.js",
+    "runtime-main.js.map": "/lazaro_creations_shop/static/js/runtime-main.4a889a3e.js.map",
+    "static/js/2.31e729de.chunk.js": "/lazaro_creations_shop/static/js/2.31e729de.chunk.js",
+    "static/js/2.31e729de.chunk.js.map": "/lazaro_creations_shop/static/js/2.31e729de.chunk.js.map",
+    "static/js/3.a0cdd74e.chunk.js": "/lazaro_creations_shop/static/js/3.a0cdd74e.chunk.js",
+    "static/js/3.a0cdd74e.chunk.js.map": "/lazaro_creations_shop/static/js/3.a0cdd74e.chunk.js.map",
+    "index.html": "/lazaro_creations_shop/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/lazaro_creations_shop/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.31e729de.chunk.js.LICENSE.txt": "/lazaro_creations_shop/static/js/2.31e729de.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/lazaro_creations_shop/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4a889a3e.js",
+    "static/js/2.31e729de.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.0146f510.chunk.js"
+  ]
+}
