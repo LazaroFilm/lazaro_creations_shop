@@ -1,23 +1,27 @@
 {
   "files": {
-    "main.css": "/lazaro_creations_shop/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/lazaro_creations_shop/static/js/main.0146f510.chunk.js",
-    "main.js.map": "/lazaro_creations_shop/static/js/main.0146f510.chunk.js.map",
-    "runtime-main.js": "/lazaro_creations_shop/static/js/runtime-main.4a889a3e.js",
-    "runtime-main.js.map": "/lazaro_creations_shop/static/js/runtime-main.4a889a3e.js.map",
-    "static/js/2.31e729de.chunk.js": "/lazaro_creations_shop/static/js/2.31e729de.chunk.js",
-    "static/js/2.31e729de.chunk.js.map": "/lazaro_creations_shop/static/js/2.31e729de.chunk.js.map",
-    "static/js/3.a0cdd74e.chunk.js": "/lazaro_creations_shop/static/js/3.a0cdd74e.chunk.js",
-    "static/js/3.a0cdd74e.chunk.js.map": "/lazaro_creations_shop/static/js/3.a0cdd74e.chunk.js.map",
+    "main.css": "/lazaro_creations_shop/static/css/main.966cb371.chunk.css",
+    "main.js": "/lazaro_creations_shop/static/js/main.99c1da5b.chunk.js",
+    "main.js.map": "/lazaro_creations_shop/static/js/main.99c1da5b.chunk.js.map",
+    "runtime-main.js": "/lazaro_creations_shop/static/js/runtime-main.b8d3b3ec.js",
+    "runtime-main.js.map": "/lazaro_creations_shop/static/js/runtime-main.b8d3b3ec.js.map",
+    "static/css/2.d00f39fa.chunk.css": "/lazaro_creations_shop/static/css/2.d00f39fa.chunk.css",
+    "static/js/2.8ba0ad8b.chunk.js": "/lazaro_creations_shop/static/js/2.8ba0ad8b.chunk.js",
+    "static/js/2.8ba0ad8b.chunk.js.map": "/lazaro_creations_shop/static/js/2.8ba0ad8b.chunk.js.map",
+    "static/js/3.aca6de1e.chunk.js": "/lazaro_creations_shop/static/js/3.aca6de1e.chunk.js",
+    "static/js/3.aca6de1e.chunk.js.map": "/lazaro_creations_shop/static/js/3.aca6de1e.chunk.js.map",
     "index.html": "/lazaro_creations_shop/index.html",
-    "static/css/main.8c8b27cf.chunk.css.map": "/lazaro_creations_shop/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.31e729de.chunk.js.LICENSE.txt": "/lazaro_creations_shop/static/js/2.31e729de.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/lazaro_creations_shop/static/media/logo.6ce24c58.svg"
+    "static/css/2.d00f39fa.chunk.css.map": "/lazaro_creations_shop/static/css/2.d00f39fa.chunk.css.map",
+    "static/css/main.966cb371.chunk.css.map": "/lazaro_creations_shop/static/css/main.966cb371.chunk.css.map",
+    "static/js/2.8ba0ad8b.chunk.js.LICENSE.txt": "/lazaro_creations_shop/static/js/2.8ba0ad8b.chunk.js.LICENSE.txt",
+    "static/media/pro_level.846ef986.jpg": "/lazaro_creations_shop/static/media/pro_level.846ef986.jpg",
+    "static/media/index.css": "/lazaro_creations_shop/static/media/roboto-vietnamese-400-normal.52cebac0.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.4a889a3e.js",
-    "static/js/2.31e729de.chunk.js",
-    "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.0146f510.chunk.js"
+    "static/js/runtime-main.b8d3b3ec.js",
+    "static/css/2.d00f39fa.chunk.css",
+    "static/js/2.8ba0ad8b.chunk.js",
+    "static/css/main.966cb371.chunk.css",
+    "static/js/main.99c1da5b.chunk.js"
   ]
 }
