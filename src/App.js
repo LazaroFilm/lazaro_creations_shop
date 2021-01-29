@@ -1,22 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import AppBar from "./AppBar";
+import ItemPrev from "./ItemPrev";
+import { useState } from "react";
+import Button from "@material-ui/core/Button";
 
 function App() {
+  const [test, setTest] = useState(true);
+
   return (
     <div className="App">
+      <AppBar />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+        <ItemPrev />
+        <p>Then let's see how this works: {test ? "All Good" : "Oh No"}</p>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            setTest(test ? false : true);
+          }}
         >
-          Learn React
-        </a>
+          click me
+        </Button>
       </header>
     </div>
   );
