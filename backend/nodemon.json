@@ -1,0 +1,4 @@
+{
+  "vebose": true,
+  "ignore": ["*.test.js", "fixtures/*"]
+}

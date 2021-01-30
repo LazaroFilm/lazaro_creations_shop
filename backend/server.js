@@ -7,6 +7,8 @@ const Item = require("./item");
 
 require("dotenv").config();
 
+console.clear();
+
 const API_PORT = process.env.PORT;
 const app = express();
 app.use(cors());
@@ -54,7 +56,7 @@ router.post("/updateItem", (req, res) => {
 // this method removes existing data in our database
 router.delete("/deleteItem", (req, res) => {
   const { title } = req.query;
-  Data.findByIdAndRemove(title, (err) => {
+  Item.findByIdAndRemove(title, (err) => {
     if (err) return res.send(err);
     return res.json({ success: true });
   });
@@ -62,13 +64,14 @@ router.delete("/deleteItem", (req, res) => {
 
 // this is our create methid
 // this method adds new data in our database
-router.post("/putItem", (req, res) => {
+router.post("/postItem", (req, res) => {
   let item = new Item();
 
   const { img, title, description } = req.query;
   console.log(req.query);
 
   if (!img || !title || !description) {
+    // if (true) {
     return res.json({
       success: false,
       error: "INVALID INPUTS",
