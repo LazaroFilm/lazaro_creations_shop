@@ -1,20 +1,22 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+import {
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Button,
+  Typography,
+} from "@material-ui/core";
 import image from "./pro_level.jpg";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    width: 845,
   },
   media: {
-    height: 140,
+    height: 340,
   },
 });
 
@@ -34,16 +36,16 @@ export default function MediaCard() {
             Pro Level
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Make balancing your camera a breze
+            Make balancing your camera a breeze
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
+        <Button size="small" color="secondary">
+          Like
         </Button>
-        <Button size="small" color="primary">
-          Learn More
+        <Button size="small" color="secondary">
+          Buy
         </Button>
       </CardActions>
     </Card>

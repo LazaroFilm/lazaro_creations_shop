@@ -1,28 +1,61 @@
 import "./App.css";
 import AppBar from "./AppBar";
-import ItemPrev from "./ItemPrev";
-import { useState } from "react";
-import Button from "@material-ui/core/Button";
+import ItemsGrid from "./ItemsGrid";
+import { useReducer } from "react";
+import { Button } from "@material-ui/core";
+import reducer from "./reducer";
+import {
+  unstable_createMuiStrictModeTheme as createMuiTheme,
+  ThemeProvider,
+} from "@material-ui/core/styles";
 
 function App() {
-  const [test, setTest] = useState(true);
+  const initialState = {
+    cartQty: 0,
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const theme = createMuiTheme({
+    palette: {
+      primary: {
+        light: "#fff350",
+        main: "#ffc107",
+        dark: "#c79100",
+      },
+      secondary: {
+        light: "#757de8",
+        main: "#3f51b5",
+        dark: "#002984",
+      },
+    },
+  });
 
   return (
     <div className="App">
-      <AppBar />
-      <header className="App-header">
-        <ItemPrev />
-        <p>Then let's see how this works: {test ? "All Good" : "Oh No"}</p>
+      <ThemeProvider theme={theme}>
+        <AppBar state={state} />
+        {/* <ItemDetails /> */}
+        <ItemsGrid />
+        {/* <ItemPrev /> */}
         <Button
           variant="contained"
           color="primary"
           onClick={() => {
-            setTest(test ? false : true);
+            dispatch({ type: "cart-increment" });
           }}
         >
-          click me
+          +
         </Button>
-      </header>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            dispatch({ type: "cart-decrement" });
+          }}
+        >
+          -
+        </Button>
+      </ThemeProvider>
     </div>
   );
 }
