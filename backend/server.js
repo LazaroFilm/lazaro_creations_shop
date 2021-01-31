@@ -9,7 +9,7 @@ require("dotenv").config();
 
 console.clear();
 
-const API_PORT = process.env.PORT;
+const API_PORT = process.env.PORT || 3001;
 const app = express();
 app.use(cors());
 const router = express.Router();
