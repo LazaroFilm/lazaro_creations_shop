@@ -1,5 +1,16 @@
 {
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
   "author": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "npm server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -8,18 +19,7 @@
     "mongoose": "^5.11.14",
     "morgan": "^1.10.0"
   },
-  "description": "",
   "devDependencies": {
     "nodemon": "^2.0.7"
-  },
-  "keywords": [],
-  "license": "ISC",
-  "main": "server.js",
-  "name": "backend",
-  "scripts": {
-    "dev": "nodemon server.js",
-    "start": "npm server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "version": "1.0.0"
+  }
 }

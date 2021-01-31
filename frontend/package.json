@@ -1,5 +1,21 @@
 {
+  "name": "lazaro_creations_shop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "creating an online shop for Lazaro Creations 3D printing.",
+  "keywords": [],
+  "homepage": "https://lazarofilm.github.io/lazaro_creations_shop/",
+  "license": "ISC",
   "author": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "eject": "react-scripts eject",
+    "start": "react-scripts start",
+    "test": "react-scripts test"
+  },
   "browserslist": {
     "development": [
       "last 1 chrome version",
@@ -10,6 +26,12 @@
       ">0.2%",
       "not dead",
       "not op_mini all"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
     ]
   },
   "dependencies": {
@@ -25,30 +47,8 @@
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },
-  "description": "creating an online shop for Lazaro Creations 3D printing.",
   "devDependencies": {
     "gh-pages": "^3.1.0"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "homepage": "https://lazarofilm.github.io/lazaro_creations_shop/",
-  "keywords": [],
-  "license": "ISC",
-  "main": "index.js",
-  "name": "lazaro_creations_shop",
-  "private": true,
-  "proxy": "http://localhost:3001",
-  "scripts": {
-    "build": "react-scripts build",
-    "deploy": "gh-pages -d build",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "start": "react-scripts start",
-    "test": "react-scripts test"
-  },
-  "version": "0.1.0"
+  "proxy": "http://localhost:3001"
 }
