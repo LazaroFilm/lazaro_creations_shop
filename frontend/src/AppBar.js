@@ -208,7 +208,9 @@ export default function PrimarySearchAppBar({ state }) {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon />
+              <Badge badgeContent={state.cartQty} color="secondary">
+                <MoreIcon />
+              </Badge>
             </IconButton>
           </div>
         </Toolbar>

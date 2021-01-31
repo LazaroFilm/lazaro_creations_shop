@@ -58,7 +58,7 @@ const useFetch = (url) => {
   const [data, setData] = useState(null);
 
   async function fetchData() {
-    const response = await fetch(url)
+    await fetch(url)
       .then((item) => item.json())
       .then((res) => setData(res.item));
     console.log(data);
@@ -66,6 +66,7 @@ const useFetch = (url) => {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
   return data;
 };

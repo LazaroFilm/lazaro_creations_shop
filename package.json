@@ -1,0 +1,24 @@
+{
+  "name": "lazaro_creations_shop",
+  "version": "1.0.0",
+  "description": "creating an online shop for Lazaro Creations 3D printing.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LazaroFilm/lazaro_creations_shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LazaroFilm/lazaro_creations_shop/issues"
+  },
+  "homepage": "https://github.com/LazaroFilm/lazaro_creations_shop#readme",
+  "dependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
