@@ -13,7 +13,7 @@
   },
   "license": "ISC",
   "author": "",
-  "main": "index.js",
+  "main": "frontend/index.js",
   "scripts": {
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
     "start": "concurrently \"cd backend && npm start\" \"cd frontend && npm start\"",
