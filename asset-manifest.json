@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/lazaro_creations_shop/frontend/static/css/main.966cb371.chunk.css",
-    "main.js": "/lazaro_creations_shop/frontend/static/js/main.716d0953.chunk.js",
-    "main.js.map": "/lazaro_creations_shop/frontend/static/js/main.716d0953.chunk.js.map",
+    "main.js": "/lazaro_creations_shop/frontend/static/js/main.eeb280e0.chunk.js",
+    "main.js.map": "/lazaro_creations_shop/frontend/static/js/main.eeb280e0.chunk.js.map",
     "runtime-main.js": "/lazaro_creations_shop/frontend/static/js/runtime-main.b3e2b0fc.js",
     "runtime-main.js.map": "/lazaro_creations_shop/frontend/static/js/runtime-main.b3e2b0fc.js.map",
     "static/css/2.93c31afa.chunk.css": "/lazaro_creations_shop/frontend/static/css/2.93c31afa.chunk.css",
@@ -22,6 +22,6 @@
     "static/css/2.93c31afa.chunk.css",
     "static/js/2.7f8264ea.chunk.js",
     "static/css/main.966cb371.chunk.css",
-    "static/js/main.716d0953.chunk.js"
+    "static/js/main.eeb280e0.chunk.js"
   ]
 }
