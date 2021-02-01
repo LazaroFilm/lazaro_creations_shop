@@ -15,6 +15,7 @@
   "author": "",
   "main": "/frontend/index.js",
   "scripts": {
+    "build": "cd frontend && npm run build",
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
     "start": "concurrently \"cd backend && npm start\" \"cd frontend && npm start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
