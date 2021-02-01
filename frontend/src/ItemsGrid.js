@@ -9,11 +9,10 @@ import {
   IconButton,
   Backdrop,
 } from "@material-ui/core";
-// import InfoIcon from "@material-ui/icons/Info";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 // import tileData from "./tileData";
 import ItemPrev from "./ItemPrev";
-// import image from "./pro_level.jpg";
+// import pro_level from "./images/pro_level.jpg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,7 +60,7 @@ const useFetch = (url) => {
     await fetch(url)
       .then((item) => item.json())
       .then((res) => setData(res.item));
-    console.log(data);
+    // console.log(data);
   }
 
   useEffect(() => {
@@ -72,7 +71,10 @@ const useFetch = (url) => {
 };
 
 export default function TitlebarGridList() {
-  const tileData = useFetch("http://localhost:3001/api/getItem");
+  // const tileData = useFetch("http://localhost:3001/api/getItem");
+  const tileData = useFetch(
+    "https://lazaro-creations-shop.herokuapp.com/api/getItem"
+  );
   const classes = useStyles();
 
   // Open/Close the backdrop
@@ -84,7 +86,7 @@ export default function TitlebarGridList() {
     setOpen(!open);
   };
   if (tileData) {
-    console.log(tileData);
+    // console.log(tileData);
     return (
       <div className={classes.root}>
         <GridList cellHeight={180} className={classes.gridList}>

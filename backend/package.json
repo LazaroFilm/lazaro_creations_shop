@@ -1,7 +1,6 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
   "keywords": [],
   "license": "ISC",
   "author": "",
@@ -21,5 +20,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
-  }
+  },
+  "description": ""
 }

@@ -9,7 +9,7 @@ import {
   Button,
   Typography,
 } from "@material-ui/core";
-import image from "./pro_level.jpg";
+import image from "./images/pro_level.jpg";
 
 const useStyles = makeStyles({
   root: {
