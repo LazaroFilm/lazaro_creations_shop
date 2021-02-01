@@ -4,7 +4,7 @@
   "private": true,
   "description": "creating an online shop for Lazaro Creations 3D printing.",
   "keywords": [],
-  "homepage": "https://lazarofilm.github.io/lazaro_creations_shop/frontend",
+  "homepage": "https://lazarofilm.github.io/lazaro_creations_shop",
   "license": "ISC",
   "author": "",
   "main": "index.js",
