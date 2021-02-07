@@ -20,11 +20,14 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MediaCard() {
+export default function MediaCard(item) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card
+      className={classes.root}
+      onClick={console.log("You clicked on a Card")}
+    >
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -41,7 +44,11 @@ export default function MediaCard() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="secondary">
+        <Button
+          size="small"
+          color="secondary"
+          onClick={console.log(`like ${item}`)}
+        >
           Like
         </Button>
         <Button size="small" color="secondary">
