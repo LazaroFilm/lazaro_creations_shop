@@ -9,6 +9,7 @@ import {
   IconButton,
   Backdrop,
 } from "@material-ui/core";
+import { Skeleton } from "@material-ui/lab";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 // import tileData from "./tileData";
 import ItemPrev from "./ItemPrev";
@@ -64,6 +65,7 @@ const useFetch = (url) => {
   }
 
   useEffect(() => {
+    console.log(`fetching data`);
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
@@ -73,6 +75,7 @@ const useFetch = (url) => {
 export default function TitlebarGridList() {
   // const tileData = useFetch("http://localhost:3001/api/getItem");
   const tileData = useFetch(
+    // "nothing"
     "https://lazaro-creations-shop.herokuapp.com/api/getItem"
   );
   const classes = useStyles();
@@ -80,11 +83,13 @@ export default function TitlebarGridList() {
   // Open/Close the backdrop
   const [open, setOpen] = useState(false);
   const handleClose = () => {
+    console.log("closing backdrop");
     setOpen(false);
   };
   const handleToggle = () => {
     setOpen(!open);
   };
+
   if (tileData) {
     // console.log(tileData);
     return (
@@ -95,24 +100,32 @@ export default function TitlebarGridList() {
               3D printed camera accessories for Steadicam and camera operators
             </ListSubheader>
           </GridListTile>
-          {tileData.map((tile) => (
-            <GridListTile key={tile.title}>
-              <img src={tile.img} alt={tile.title} />
-              <GridListTileBar
-                title={tile.title}
-                subtitle={<span>{tile.description}</span>}
-                actionIcon={
-                  <IconButton
-                    aria-label={`info about ${tile.title}`}
-                    className={classes.icon}
-                    onClick={handleToggle}
-                  >
-                    <AddCircleIcon />
-                  </IconButton>
-                }
-              />
-            </GridListTile>
-          ))}
+          {tileData.map((tile) =>
+            tileData ? (
+              <GridListTile key={tile.title}>
+                <img src={tile.img} alt={tile.title} />
+                <GridListTileBar
+                  title={tile.title}
+                  subtitle={<span>{tile.description}</span>}
+                  actionIcon={
+                    <IconButton
+                      aria-label={`info about ${tile.title}`}
+                      className={classes.icon}
+                      onClick={() => handleToggle(tile.title)}
+                    >
+                      <AddCircleIcon />
+                    </IconButton>
+                  }
+                />
+              </GridListTile>
+            ) : (
+              <GridListTile key={"loading"}>
+                <Skeleton variant="text" />
+                <Skeleton variant="circle" width={40} height={40} />
+                <Skeleton variant="rect" width={210} height={118} />
+              </GridListTile>
+            )
+          )}
         </GridList>
         <Backdrop
           className={classes.backdrop}
@@ -124,6 +137,12 @@ export default function TitlebarGridList() {
       </div>
     );
   } else {
-    return <div>loading...</div>;
+    return (
+      <div>
+        <Skeleton variant="text" />
+        <Skeleton variant="circle" width={40} height={40} />
+        <Skeleton variant="rect" width={210} height={118} />
+      </div>
+    );
   }
 }
