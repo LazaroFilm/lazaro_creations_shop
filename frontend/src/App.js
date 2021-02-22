@@ -1,13 +1,24 @@
-import "./App.css";
-import AppBar from "./AppBar";
-import ItemsGrid from "./ItemsGrid";
+import React from "react";
+
 import { useReducer } from "react";
-import { Button } from "@material-ui/core";
 import reducer from "./reducer";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import "./App.css";
+import Nav from "./components/Nav";
+import Shop from "./components/Shop";
+import Item from "./components/Item";
+import Cart from "./components/Cart";
+import About from "./components/About";
+import NotFound from "./components/NotFound";
+
+// ##### MATERIAL UI #####
+import { Button } from "@material-ui/core";
 import {
   unstable_createMuiStrictModeTheme as createMuiTheme,
   ThemeProvider,
 } from "@material-ui/core/styles";
+import { Fragment } from "react";
 
 function App() {
   const initialState = {
@@ -30,13 +41,9 @@ function App() {
     },
   });
 
-  return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
-        <AppBar state={state} />
-        {/* <ItemDetails /> */}
-        <ItemsGrid />
-        {/* <ItemPrev /> */}
+  const CartButtons = () => {
+    return (
+      <Fragment>
         <Button
           variant="contained"
           color="primary"
@@ -55,8 +62,30 @@ function App() {
         >
           -
         </Button>
-      </ThemeProvider>
-    </div>
+      </Fragment>
+    );
+  };
+
+  return (
+    <Router>
+      <div className="App">
+        <ThemeProvider theme={theme}>
+          {/* <AppBar state={state} /> */}
+          {/* TODO: work on useReducer state */}
+          <Nav state={state} />
+          {/* <ItemsGrid /> */}
+          <Switch>
+            <Route exact path="/" component={Shop} />
+            <Route path="/shop" component={Shop} />
+            <Route path="/item" component={Item} />
+            <Route path="/cart" component={Cart} />
+            <Route path="/about" component={About} />
+            <Route component={NotFound} />
+          </Switch>
+          <CartButtons />
+        </ThemeProvider>
+      </div>
+    </Router>
   );
 }
 
