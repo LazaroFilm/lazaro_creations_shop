@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 // ##### MATERIAL UI #####
 import { fade, makeStyles } from "@material-ui/core/styles";
@@ -174,10 +174,16 @@ export default function PrimarySearchAppBar({ state }) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            <Link to="/" color="inherit">
-              Lazaro Creations
-            </Link>
+          <Typography
+            className={classes.title}
+            variant="h6"
+            noWrap
+            component={RouterLink}
+            to="/"
+          >
+            {/* <Link to="/" color="inherit"> */}
+            Lazaro Creations
+            {/* </Link> */}
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -194,7 +200,12 @@ export default function PrimarySearchAppBar({ state }) {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
+            <IconButton
+              aria-label="show 17 new notifications"
+              color="inherit"
+              component={RouterLink}
+              to="/cart"
+            >
               <Badge badgeContent={state.cartQty} color="secondary">
                 <ShoppingCartIcon />
               </Badge>

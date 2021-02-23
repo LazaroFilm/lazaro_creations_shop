@@ -1,7 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
 // import tileData from "./tileData";
-import Item from "./Item";
+// import Item from "./Item";
 // import pro_level from "./images/pro_level.jpg";
 
 // ##### MATERIAL UI #####
@@ -12,7 +13,7 @@ import {
   GridListTileBar,
   ListSubheader,
   IconButton,
-  Backdrop,
+  // Backdrop,
 } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
@@ -82,15 +83,18 @@ export default function TitlebarGridList() {
   );
   const classes = useStyles();
 
-  // Open/Close the backdrop
-  const [open, setOpen] = useState(false);
-  const handleClose = () => {
-    console.log("closing backdrop");
-    setOpen(false);
-  };
-  const handleToggle = () => {
-    setOpen(!open);
-  };
+  // // Open/Close the backdrop
+  // const [open, setOpen] = useState(false);
+  // const handleClose = () => {
+  //   console.log("closing backdrop");
+  //   setOpen(false);
+  // };
+
+  // const history = useHistory();
+
+  // const handleItemClick = () => {
+  //   history.push("/item");
+  // };
 
   const LoadingGridTile = () => {
     return (
@@ -133,21 +137,24 @@ export default function TitlebarGridList() {
                   <IconButton
                     aria-label={`info about ${tile.title}`}
                     className={classes.icon}
-                    onClick={() => handleToggle(tile.title)}
+                    component={RouterLink}
+                    to="/item"
+                    // onClick={}
                   >
-                    <AddCircleIcon />
+                    {/* <Link to="/item"> */}
+                    <AddCircleIcon /> {/* </Link> */}
                   </IconButton>
                 }
               />
             </GridListTile>
           ))
         ) : (
-          <>
+          <div>
             <LoadingGridTile />
             <LoadingGridTile />
             <LoadingGridTile />
             <LoadingGridTile />
-          </>
+          </div>
         )}
       </GridList>
       {/* <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
