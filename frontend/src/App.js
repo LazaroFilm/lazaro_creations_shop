@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useReducer } from "react";
 
-import { useReducer } from "react";
+import { ReducerContext } from "./context";
 import reducer from "./reducer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -68,23 +68,25 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
-        <ThemeProvider theme={theme}>
-          {/* <AppBar state={state} /> */}
-          {/* TODO: work on useReducer state */}
-          <Nav state={state} />
-          {/* <ItemsGrid /> */}
-          <Switch>
-            <Route exact path="/" component={Shop} />
-            <Route path="/shop" component={Shop} />
-            <Route path="/item" component={Item} />
-            <Route path="/cart" component={Cart} />
-            <Route path="/about" component={About} />
-            <Route component={NotFound} />
-          </Switch>
-          <CartButtons />
-        </ThemeProvider>
-      </div>
+      <ReducerContext.Provider value={{ state, dispatch }}>
+        <div className="App">
+          <ThemeProvider theme={theme}>
+            {/* <AppBar state={state} /> */}
+            {/* TODO: work on useReducer state */}
+            <Nav />
+            {/* <ItemsGrid /> */}
+            <Switch>
+              <Route exact path="/" component={Shop} />
+              <Route path="/shop" component={Shop} />
+              <Route path="/item" component={Item} />
+              <Route path="/cart" component={Cart} />
+              <Route path="/about" component={About} />
+              <Route component={NotFound} />
+            </Switch>
+            <CartButtons />
+          </ThemeProvider>
+        </div>
+      </ReducerContext.Provider>
     </Router>
   );
 }

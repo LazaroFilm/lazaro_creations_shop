@@ -1,5 +1,6 @@
-import React from "react";
-import { Link as RouterLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { ReducerContext } from "../context";
 
 // ##### MATERIAL UI #####
 import { fade, makeStyles } from "@material-ui/core/styles";
@@ -81,7 +82,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PrimarySearchAppBar({ state }) {
+export default function PrimarySearchAppBar() {
+  const { state, dispatch } = useContext(ReducerContext);
+
   // const initialState = {
   //   cartQty: 0,
   // };
@@ -178,12 +181,12 @@ export default function PrimarySearchAppBar({ state }) {
             className={classes.title}
             variant="h6"
             noWrap
-            component={RouterLink}
-            to="/"
+            // component={Link}
+            // to="/"
           >
-            {/* <Link to="/" color="inherit"> */}
-            Lazaro Creations
-            {/* </Link> */}
+            <Link to="/" color="inherit">
+              Lazaro Creations
+            </Link>
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -203,7 +206,7 @@ export default function PrimarySearchAppBar({ state }) {
             <IconButton
               aria-label="show 17 new notifications"
               color="inherit"
-              component={RouterLink}
+              component={Link}
               to="/cart"
             >
               <Badge badgeContent={state.cartQty} color="secondary">

@@ -1,6 +1,7 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+import { ReducerContext } from "../context";
+import reducer from "../reducer";
+// import { Link as RouterLink } from "react-router-dom";
 // import tileData from "./tileData";
 // import Item from "./Item";
 // import pro_level from "./images/pro_level.jpg";
@@ -22,9 +23,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
+    // width: 900,
     justifyContent: "space-around",
     overflow: "hidden",
+    // lg: 5,
     backgroundColor: theme.palette.background.paper,
+    // backgroundcolor: "blue",
   },
   gridList: {
     width: 500,
@@ -57,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
  * ];
  */
 
+// Fetches the JSON data from the server
 const useFetch = (url) => {
   const [data, setData] = useState(null);
 
@@ -64,19 +69,26 @@ const useFetch = (url) => {
     await fetch(url)
       .then((item) => item.json())
       .then((res) => setData(res.item));
-    // console.log(data);
+    console.log(data);
   }
 
+  // Executes useEffect upon page loading
   useEffect(() => {
     console.log(`fetching data`);
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [url]);
+  }, []);
   return data;
 };
 
 export default function TitlebarGridList() {
-  // const tileData = useFetch("http://localhost:3001/api/getItem");
+  // const initialState = {
+  //   cartQty: 0,
+  // };
+  // const [state, dispatch] = useReducer(reducer, initialState);
+
+  const { state, dispatch } = useContext(ReducerContext);
+
   const tileData = useFetch(
     // "nothing"
     "https://lazaro-creations-shop.herokuapp.com/api/getItem"
@@ -123,13 +135,13 @@ export default function TitlebarGridList() {
   return (
     <div className={classes.root}>
       <GridList cellHeight={180} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={3} style={{ height: "auto" }}>
+        <GridListTile key="Subheader" cols={2} style={{ height: "auto" }}>
           <ListSubheader component="div"></ListSubheader>
         </GridListTile>
         {tileData ? (
           tileData.map((tile) => (
             <GridListTile key={tile.title}>
-              <img src={tile.img} alt={tile.title} />
+              <img src={`/${tile.img}`} alt={tile.title} />
               <GridListTileBar
                 title={tile.title}
                 subtitle={<span>{tile.description}</span>}
@@ -137,8 +149,14 @@ export default function TitlebarGridList() {
                   <IconButton
                     aria-label={`info about ${tile.title}`}
                     className={classes.icon}
-                    component={RouterLink}
-                    to="/item"
+                    // component={RouterLink}
+                    // to="/item"
+                    //! WORKING ON REDUCER
+                    onClick={() => {
+                      console.log("adding to the cart from shop");
+                      dispatch({ type: "cart-increment" });
+                      console.log(state);
+                    }}
                     // onClick={}
                   >
                     {/* <Link to="/item"> */}
