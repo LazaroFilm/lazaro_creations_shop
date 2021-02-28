@@ -1,10 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { ReducerContext } from "../context";
-import reducer from "../reducer";
-// import { Link as RouterLink } from "react-router-dom";
-// import tileData from "./tileData";
-// import Item from "./Item";
-// import pro_level from "./images/pro_level.jpg";
+import { DispatchContext } from "../context";
 
 // ##### MATERIAL UI #####
 import { makeStyles } from "@material-ui/core/styles";
@@ -23,12 +18,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
-    // width: 900,
     justifyContent: "space-around",
     overflow: "hidden",
-    // lg: 5,
     backgroundColor: theme.palette.background.paper,
-    // backgroundcolor: "blue",
   },
   gridList: {
     width: 500,
@@ -69,12 +61,10 @@ const useFetch = (url) => {
     await fetch(url)
       .then((item) => item.json())
       .then((res) => setData(res.item));
-    console.log(data);
   }
 
   // Executes useEffect upon page loading
   useEffect(() => {
-    console.log(`fetching data`);
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -82,31 +72,13 @@ const useFetch = (url) => {
 };
 
 export default function TitlebarGridList() {
-  // const initialState = {
-  //   cartQty: 0,
-  // };
-  // const [state, dispatch] = useReducer(reducer, initialState);
-
-  const { state, dispatch } = useContext(ReducerContext);
+  const { dispatch } = useContext(DispatchContext);
 
   const tileData = useFetch(
     // "nothing"
     "https://lazaro-creations-shop.herokuapp.com/api/getItem"
   );
   const classes = useStyles();
-
-  // // Open/Close the backdrop
-  // const [open, setOpen] = useState(false);
-  // const handleClose = () => {
-  //   console.log("closing backdrop");
-  //   setOpen(false);
-  // };
-
-  // const history = useHistory();
-
-  // const handleItemClick = () => {
-  //   history.push("/item");
-  // };
 
   const LoadingGridTile = () => {
     return (
@@ -130,8 +102,6 @@ export default function TitlebarGridList() {
     );
   };
 
-  // if (tileData) {
-  // console.log(tileData);
   return (
     <div className={classes.root}>
       <GridList cellHeight={180} className={classes.gridList}>
@@ -149,18 +119,11 @@ export default function TitlebarGridList() {
                   <IconButton
                     aria-label={`info about ${tile.title}`}
                     className={classes.icon}
-                    // component={RouterLink}
-                    // to="/item"
-                    //! WORKING ON REDUCER
                     onClick={() => {
-                      console.log("adding to the cart from shop");
                       dispatch({ type: "cart-increment" });
-                      console.log(state);
                     }}
-                    // onClick={}
                   >
-                    {/* <Link to="/item"> */}
-                    <AddCircleIcon /> {/* </Link> */}
+                    <AddCircleIcon />
                   </IconButton>
                 }
               />

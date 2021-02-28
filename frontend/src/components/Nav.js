@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ReducerContext } from "../context";
+import { StateContext } from "../context";
 
 // ##### MATERIAL UI #####
 import { fade, makeStyles } from "@material-ui/core/styles";
@@ -83,14 +83,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PrimarySearchAppBar() {
-  const { state, dispatch } = useContext(ReducerContext);
-
-  // const initialState = {
-  //   cartQty: 0,
-  // };
-  // const [state, dispatch] = useReducer(reducer, initialState);
-
-  console.log(state);
+  const { state } = useContext(StateContext);
 
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
