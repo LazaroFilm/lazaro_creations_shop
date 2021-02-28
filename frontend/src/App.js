@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./App.css";
 import Nav from "./components/Nav";
+import Drawer from "./components/Drawer";
 import Shop from "./components/Shop";
 import Item from "./components/Item";
 import Cart from "./components/Cart";
@@ -23,6 +24,7 @@ import { Fragment } from "react";
 function App() {
   const initialState = {
     cartQty: 0,
+    drawerState: false,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -75,6 +77,7 @@ function App() {
               {/* <AppBar state={state} /> */}
               {/* TODO: work on useReducer state */}
               <Nav />
+              <Drawer />
               {/* <ItemsGrid /> */}
               <Switch>
                 <Route exact path="/" component={Shop} />

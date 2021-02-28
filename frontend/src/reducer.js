@@ -8,6 +8,10 @@ export default function reducer(state, action) {
       } else {
         return { ...state };
       }
+    case "open-drawer":
+      return { drawerState: true };
+    case "close-drawer":
+      return { drawerState: false };
     default:
       throw new Error();
   }

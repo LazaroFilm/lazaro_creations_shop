@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { StateContext } from "../context";
+import { StateContext, DispatchContext } from "../context";
+// import Drawer from "./Drawer";
 
 // ##### MATERIAL UI #####
 import { fade, makeStyles } from "@material-ui/core/styles";
@@ -84,6 +85,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PrimarySearchAppBar() {
   const { state } = useContext(StateContext);
+  const { dispatch } = useContext(DispatchContext);
 
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -137,7 +139,7 @@ export default function PrimarySearchAppBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
+        <IconButton aria-label="show new notifications" color="inherit">
           <Badge badgeContent={state.cartQty} color="secondary">
             <ShoppingCartIcon />
           </Badge>
@@ -167,6 +169,9 @@ export default function PrimarySearchAppBar() {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
+            onClick={() => {
+              dispatch({ type: "open-drawer" });
+            }}
           >
             <MenuIcon />
           </IconButton>
