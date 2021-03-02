@@ -74,11 +74,8 @@ function App() {
         <DispatchContext.Provider value={{ dispatch }}>
           <div className="App">
             <ThemeProvider theme={theme}>
-              {/* <AppBar state={state} /> */}
-              {/* TODO: work on useReducer state */}
               <Nav />
               <Drawer />
-              {/* <ItemsGrid /> */}
               <Switch>
                 <Route exact path="/" component={Shop} />
                 <Route path="/shop" component={Shop} />
