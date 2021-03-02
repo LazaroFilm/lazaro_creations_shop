@@ -11,8 +11,8 @@ import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import PlayArrowOutlinedIcon from "@material-ui/icons/PlayArrowOutlined";
 
 const useStyles = makeStyles({
   list: {
@@ -49,7 +49,7 @@ export default function TemporaryDrawer() {
         {["All"].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              <PlayArrowIcon />
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
@@ -61,7 +61,7 @@ export default function TemporaryDrawer() {
           (text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                <PlayArrowOutlinedIcon />
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>

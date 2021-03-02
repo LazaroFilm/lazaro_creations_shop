@@ -9,6 +9,7 @@ import {
   GridListTileBar,
   ListSubheader,
   IconButton,
+  Tooltip,
   // Backdrop,
 } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
@@ -116,15 +117,17 @@ export default function TitlebarGridList() {
                 title={tile.title}
                 subtitle={<span>{tile.description}</span>}
                 actionIcon={
-                  <IconButton
-                    aria-label={`info about ${tile.title}`}
-                    className={classes.icon}
-                    onClick={() => {
-                      dispatch({ type: "cart-increment" });
-                    }}
-                  >
-                    <AddCircleIcon />
-                  </IconButton>
+                  <Tooltip title="add to cart">
+                    <IconButton
+                      aria-label={`info about ${tile.title}`}
+                      className={classes.icon}
+                      onClick={() => {
+                        dispatch({ type: "cart-increment" });
+                      }}
+                    >
+                      <AddCircleIcon />
+                    </IconButton>
+                  </Tooltip>
                 }
               />
             </GridListTile>
