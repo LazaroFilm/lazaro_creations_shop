@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-/**
+/** example data:
  * The example data is structured as follows:
  *
  * import image from 'path/to/image.jpg';
@@ -77,15 +77,18 @@ export default function TitlebarGridList() {
 
   const tileData = useFetch(
     // "nothing"
+    // store items are stored on Heroku.
     "https://lazaro-creations-shop.herokuapp.com/api/getItem"
   );
   const classes = useStyles();
 
+  // template for a single skeleton item.
   const LoadingGridTile = () => {
     return (
       <GridListTile key={`loading`}>
+        {/* //TODO: Design the skeletons for when the page is loading */}
         {/* <Skeleton variant="text" />
-              <Skeleton variant="circle" width={40} height={40} /> */}
+        <Skeleton variant="circle" width={40} height={40} /> */}
         <Skeleton variant="rect" width={210} height={118} animation="wave" />
         <GridListTileBar
           title={<Skeleton variant="text" animation="wave" />}
@@ -105,10 +108,13 @@ export default function TitlebarGridList() {
 
   return (
     <div className={classes.root}>
+      {/* // TODO Make the frame wider and allow more than two columns */}
       <GridList cellHeight={180} className={classes.gridList}>
         <GridListTile key="Subheader" cols={2} style={{ height: "auto" }}>
           <ListSubheader component="div"></ListSubheader>
         </GridListTile>
+        {/* gets the tileData from Heroku and populate the shop following the
+        design below */}
         {tileData ? (
           tileData.map((tile) => (
             <GridListTile key={tile.title}>
@@ -122,6 +128,10 @@ export default function TitlebarGridList() {
                       aria-label={`info about ${tile.title}`}
                       className={classes.icon}
                       onClick={() => {
+                        // TODO: when you click here, it should open a new
+                        // TODO: drawer on the right to select your options
+                        // TODO: if you click on the rest of the image,
+                        // TODO: it should overlay the more detailed product page.
                         dispatch({ type: "cart-increment" });
                       }}
                     >
@@ -133,6 +143,7 @@ export default function TitlebarGridList() {
             </GridListTile>
           ))
         ) : (
+          // This gets loaded while the db data isn't ready.
           <div>
             <LoadingGridTile />
             <LoadingGridTile />
@@ -141,9 +152,6 @@ export default function TitlebarGridList() {
           </div>
         )}
       </GridList>
-      {/* <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
-        <ItemPrev />
-      </Backdrop> */}
     </div>
   );
 }
