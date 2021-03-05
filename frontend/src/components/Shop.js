@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { DispatchContext } from "../context";
+import Item from "./Item";
 
 // ##### MATERIAL UI #####
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,7 +11,7 @@ import {
   ListSubheader,
   IconButton,
   Tooltip,
-  // Backdrop,
+  Backdrop,
 } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
@@ -108,6 +109,9 @@ export default function TitlebarGridList() {
 
   return (
     <div className={classes.root}>
+      <Backdrop open={true}>
+        <Item />
+      </Backdrop>
       {/* // TODO Make the frame wider and allow more than two columns */}
       <GridList cellHeight={180} className={classes.gridList}>
         <GridListTile key="Subheader" cols={2} style={{ height: "auto" }}>

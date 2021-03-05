@@ -1,6 +1,11 @@
 import React from "react";
+import image from "../images/pro_level.jpg";
+import "./Item.css";
+
+// ##### MATERIAL-UI #####
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
+// import Backdrop from "@material-ui/core/Backdrop";
 import {
   CardActionArea,
   CardActions,
@@ -9,11 +14,11 @@ import {
   Button,
   Typography,
 } from "@material-ui/core";
-import image from "../images/pro_level.jpg";
 
 const useStyles = makeStyles({
   root: {
     width: 845,
+    // display: "flex",
   },
   media: {
     height: 340,
@@ -24,6 +29,7 @@ export default function MediaCard(item) {
   const classes = useStyles();
 
   return (
+    // <Backdrop className={classes.backdrop} open="open">
     <Card
       className={classes.root}
       onClick={console.log("You clicked on a Card")}
@@ -56,5 +62,6 @@ export default function MediaCard(item) {
         </Button>
       </CardActions>
     </Card>
+    // </Backdrop>
   );
 }

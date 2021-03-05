@@ -14,7 +14,7 @@ import About from "./components/About";
 import NotFound from "./components/NotFound";
 
 // ##### MATERIAL UI #####
-import { Button } from "@material-ui/core";
+import { Backdrop, Button } from "@material-ui/core";
 import {
   unstable_createMuiStrictModeTheme as createMuiTheme,
   ThemeProvider,
@@ -78,8 +78,15 @@ function App() {
               <Drawer />
               <Switch>
                 <Route exact path="/" component={Shop} />
+                <Route
+                  path="/item"
+                  render={() => (
+                    <Backdrop open={true}>
+                      <Item />
+                    </Backdrop>
+                  )}
+                />
                 <Route path="/shop" component={Shop} />
-                <Route path="/item" component={Item} />
                 <Route path="/cart" component={Cart} />
                 <Route path="/about" component={About} />
                 <Route component={NotFound} />
