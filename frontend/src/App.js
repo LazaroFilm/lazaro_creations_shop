@@ -5,6 +5,7 @@ import reducer from "./reducer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./App.css";
+import theme from "./theme";
 import Nav from "./components/Nav";
 import Drawer from "./components/Drawer";
 import Shop from "./components/Shop";
@@ -16,7 +17,7 @@ import NotFound from "./components/NotFound";
 // ##### MATERIAL UI #####
 import { Backdrop, Button } from "@material-ui/core";
 import {
-  unstable_createMuiStrictModeTheme as createMuiTheme,
+  // unstable_createMuiStrictModeTheme as createMuiTheme,
   ThemeProvider,
 } from "@material-ui/core/styles";
 import { Fragment } from "react";
@@ -28,20 +29,20 @@ function App() {
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const theme = createMuiTheme({
-    palette: {
-      primary: {
-        light: "#fff350",
-        main: "#ffc107",
-        dark: "#c79100",
-      },
-      secondary: {
-        light: "#757de8",
-        main: "#3f51b5",
-        dark: "#002984",
-      },
-    },
-  });
+  // const theme = createMuiTheme({
+  //   palette: {
+  //     primary: {
+  //       light: "#fff350",
+  //       main: "#ffc107",
+  //       dark: "#c79100",
+  //     },
+  //     secondary: {
+  //       light: "#757de8",
+  //       main: "#3f51b5",
+  //       dark: "#002984",
+  //     },
+  //   },
+  // });
 
   const CartButtons = () => {
     return (
