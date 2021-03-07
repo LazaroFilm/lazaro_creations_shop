@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { DispatchContext } from "../context";
-import Item from "./Item";
+// import Item from "./Item";
 
 // ##### MATERIAL UI #####
 import { makeStyles } from "@material-ui/core/styles";
@@ -11,10 +11,10 @@ import {
   ListSubheader,
   IconButton,
   Tooltip,
-  Backdrop,
+  // Backdrop,
 } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,9 +25,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    width: 500,
-    height: 450,
+    width: 600,
+    height: "auto",
+    cols: 3,
+    //     [theme.breakpoints.up("sm")]: {
+    //       cols: 1
+    //     }
   },
+  GridListTile: {},
   icon: {
     color: "rgba(255, 255, 255, 0.54)",
   },
@@ -109,12 +114,12 @@ export default function TitlebarGridList() {
 
   return (
     <div className={classes.root}>
-      <Backdrop open={true}>
+      {/* <Backdrop open={true}>
         <Item />
-      </Backdrop>
+      </Backdrop> */}
       {/* // TODO Make the frame wider and allow more than two columns */}
       <GridList cellHeight={180} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={2} style={{ height: "auto" }}>
+        <GridListTile key="Subheader" cols={3} style={{ height: "auto" }}>
           <ListSubheader component="div"></ListSubheader>
         </GridListTile>
         {/* gets the tileData from Heroku and populate the shop following the
@@ -139,7 +144,7 @@ export default function TitlebarGridList() {
                         dispatch({ type: "cart-increment" });
                       }}
                     >
-                      <AddCircleIcon />
+                      <AddShoppingCartIcon />
                     </IconButton>
                   </Tooltip>
                 }
