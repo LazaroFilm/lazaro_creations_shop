@@ -45,3 +45,9 @@ Uses React and Material-Ui
   - React Router &rarr; allows to use HTML addresses to access components
   - useReducer &rarr; to hold the variables
   - useContext &rarr; to allow access of these variable accross the app
+
+# Notes
+
+Turn the shop into a grid and separate the cards for the items.
+
+Change the theme to show links as dark grey.
