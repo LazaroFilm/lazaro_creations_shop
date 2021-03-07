@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, Fragment } from "react";
 
 import { StateContext, DispatchContext } from "./context";
 import reducer from "./reducer";
@@ -15,39 +15,23 @@ import About from "./components/About";
 import NotFound from "./components/NotFound";
 
 // ##### MATERIAL UI #####
-import { Backdrop, Button } from "@material-ui/core";
-import {
-  // unstable_createMuiStrictModeTheme as createMuiTheme,
-  ThemeProvider,
-} from "@material-ui/core/styles";
-import { Fragment } from "react";
+import { Backdrop, Button, IconButton, Paper } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/core/styles";
+import Brightness4Icon from "@material-ui/icons/Brightness4";
 
 function App() {
   const initialState = {
     cartQty: 0,
     drawerState: false,
+    darkMode: false,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  // const theme = createMuiTheme({
-  //   palette: {
-  //     primary: {
-  //       light: "#fff350",
-  //       main: "#ffc107",
-  //       dark: "#c79100",
-  //     },
-  //     secondary: {
-  //       light: "#757de8",
-  //       main: "#3f51b5",
-  //       dark: "#002984",
-  //     },
-  //   },
-  // });
 
   const CartButtons = () => {
     return (
       <Fragment>
         <Button
+          aria-label="cart +1"
           variant="contained"
           color="primary"
           onClick={() => {
@@ -57,6 +41,7 @@ function App() {
           +
         </Button>
         <Button
+          aria-label="cart -1"
           variant="contained"
           color="secondary"
           onClick={() => {
@@ -65,6 +50,14 @@ function App() {
         >
           -
         </Button>
+        <IconButton
+          aria-label="dark mode toggle"
+          onClick={() => {
+            dispatch({ type: "dark-mode-toggle" });
+          }}
+        >
+          <Brightness4Icon />
+        </IconButton>
       </Fragment>
     );
   };
@@ -74,25 +67,27 @@ function App() {
       <StateContext.Provider value={{ state }}>
         <DispatchContext.Provider value={{ dispatch }}>
           <div className="App">
-            <ThemeProvider theme={theme}>
+            <ThemeProvider theme={theme(state.darkMode)}>
               <Nav />
-              <Drawer />
-              <Switch>
-                <Route exact path="/" component={Shop} />
-                <Route
-                  path="/item"
-                  render={() => (
-                    <Backdrop open={true}>
-                      <Item />
-                    </Backdrop>
-                  )}
-                />
-                <Route path="/shop" component={Shop} />
-                <Route path="/cart" component={Cart} />
-                <Route path="/about" component={About} />
-                <Route component={NotFound} />
-              </Switch>
-              <CartButtons />
+              <Paper style={{ height: "100vh" }}>
+                <Drawer />
+                <Switch>
+                  <Route exact path="/" component={Shop} />
+                  <Route
+                    path="/item"
+                    render={() => (
+                      <Backdrop open={true}>
+                        <Item />
+                      </Backdrop>
+                    )}
+                  />
+                  <Route path="/shop" component={Shop} />
+                  <Route path="/cart" component={Cart} />
+                  <Route path="/about" component={About} />
+                  <Route component={NotFound} />
+                </Switch>
+                <CartButtons />
+              </Paper>
             </ThemeProvider>
           </div>
         </DispatchContext.Provider>
