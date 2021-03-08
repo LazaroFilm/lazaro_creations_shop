@@ -11,6 +11,8 @@ import {
   ListSubheader,
   IconButton,
   Tooltip,
+  isWidthUp,
+  withWidth,
   // Backdrop,
 } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
@@ -25,12 +27,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
   gridList: {
-    width: 600,
+    width: "90%",
     height: "auto",
-    cols: 3,
-    //     [theme.breakpoints.up("sm")]: {
-    //       cols: 1
-    //     }
   },
   GridListTile: {},
   icon: {
@@ -78,7 +76,7 @@ const useFetch = (url) => {
   return data;
 };
 
-export default function TitlebarGridList() {
+function Shop(props) {
   const { dispatch } = useContext(DispatchContext);
 
   const tileData = useFetch(
@@ -88,7 +86,7 @@ export default function TitlebarGridList() {
   );
   const classes = useStyles();
 
-  // template for a single skeleton item.
+  // template for a single skeleton item when loading.
   const LoadingGridTile = () => {
     return (
       <GridListTile key={`loading`}>
@@ -112,14 +110,31 @@ export default function TitlebarGridList() {
     );
   };
 
+  const cols = () => {
+    console.log(props.width);
+    if (isWidthUp("xl", props.width)) {
+      return 5;
+    }
+    if (isWidthUp("lg", props.width)) {
+      return 4;
+    }
+    if (isWidthUp("md", props.width)) {
+      return 3;
+    }
+    if (isWidthUp("sm", props.width)) {
+      return 2;
+    }
+    return 1;
+  };
+
   return (
     <div className={classes.root}>
       {/* <Backdrop open={true}>
         <Item />
       </Backdrop> */}
       {/* // TODO Make the frame wider and allow more than two columns */}
-      <GridList cellHeight={180} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={3} style={{ height: "auto" }}>
+      <GridList cellHeight={180} className={classes.gridList} cols={cols()}>
+        <GridListTile key="Subheader" cols={cols()} style={{ height: "auto" }}>
           <ListSubheader component="div"></ListSubheader>
         </GridListTile>
         {/* gets the tileData from Heroku and populate the shop following the
@@ -164,3 +179,5 @@ export default function TitlebarGridList() {
     </div>
   );
 }
+
+export default withWidth()(Shop);
