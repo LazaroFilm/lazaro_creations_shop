@@ -83,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function Nav() {
   const { state } = useContext(StateContext);
   const { dispatch } = useContext(DispatchContext);
 

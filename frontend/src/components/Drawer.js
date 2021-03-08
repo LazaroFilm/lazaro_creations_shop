@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function TemporaryDrawer() {
+export default function LeftDrawer() {
   const classes = useStyles();
 
   const { state } = useContext(StateContext);
