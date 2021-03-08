@@ -1,25 +1,26 @@
 export default function reducer(state, action) {
   switch (action.type) {
     case "cart-increment":
-      if (isNaN(state.cartQty)) {
-        return { cartQty: 1 };
-      } else {
-        return { cartQty: state.cartQty + 1 };
-      }
+      // if (isNaN(state.cartQty)) {
+      //   return { ...state, cartQty: 1 };
+      // } else {
+      return { ...state, cartQty: state.cartQty + 1 };
+    // }
     case "cart-decrement":
-      if (isNaN(state.cartQty)) {
-        return { cartQty: 0 };
-      } else if (state.cartQty > 0) {
-        return { cartQty: state.cartQty - 1 };
+      // if (isNaN(state.cartQty)) {
+      //   return { ...state, cartQty: 0 };
+      // } else
+      if (state.cartQty > 0) {
+        return { ...state, cartQty: state.cartQty - 1 };
       } else {
         return { ...state };
       }
     case "open-drawer":
-      return { drawerState: true };
+      return { ...state, drawerState: true };
     case "close-drawer":
-      return { drawerState: false };
+      return { ...state, drawerState: false };
     case "dark-mode-toggle":
-      return { darkMode: !state.darkMode };
+      return { ...state, darkMode: !state.darkMode };
     default:
       throw new Error();
   }
