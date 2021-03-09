@@ -1,18 +1,20 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { StateContext, DispatchContext } from "../context";
-// import Drawer from "./Drawer";
 
 // ##### MATERIAL UI #####
+import {
+  AppBar,
+  Badge,
+  // Link,
+  IconButton,
+  InputBase,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Typography,
+} from "@material-ui/core";
 import { fade, makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import InputBase from "@material-ui/core/InputBase";
-import Badge from "@material-ui/core/Badge";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
@@ -179,12 +181,12 @@ export default function Nav() {
             className={classes.title}
             variant="h6"
             noWrap
-            // component={Link}
-            // to="/"
+            component={Link}
+            to="/"
+            color="textPrimary"
+            underline="none"
           >
-            <Link to="/" color="inherit">
-              Lazaro Creations
-            </Link>
+            Your Text Here
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

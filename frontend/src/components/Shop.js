@@ -111,7 +111,7 @@ function Shop(props) {
   };
 
   const cols = () => {
-    console.log(props.width);
+    // console.log(props.width);
     if (isWidthUp("xl", props.width)) {
       return 5;
     }

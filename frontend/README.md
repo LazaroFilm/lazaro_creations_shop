@@ -1,7 +1,9 @@
+# Lazaro Creations Shop
+
 This is Lazar Creations' store designed by Victor Lazaro
 Uses React and Material-Ui
 
-## TODO:
+## To Do
 
 - Store
   - should be more than 2 columns of items dinamically changing depending on windown size.
@@ -36,9 +38,8 @@ Uses React and Material-Ui
 - footer
   - contact info
   - terms and conditions.
-  -
 
-## TECHNOLOGIES
+## Technologies
 
 - React
   - Material-ui &rarr; To design the User Interface with Material design elements
@@ -46,7 +47,7 @@ Uses React and Material-Ui
   - useReducer &rarr; to hold the variables
   - useContext &rarr; to allow access of these variable accross the app
 
-# Notes
+## Notes
 
 Turn the shop into a grid and separate the cards for the items.
 
