@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "-": "^0.0.1",
-    "concurrently": "^5.3.0",
+    "concurrently": "^6.0.0",
     "react-router-dom": "^5.2.0"
   }
 }
