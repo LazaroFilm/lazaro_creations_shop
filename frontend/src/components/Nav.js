@@ -21,6 +21,8 @@ import { fade, makeStyles } from "@material-ui/core/styles";
 
 import { Link } from "react-router-dom";
 
+// import { black } from "@material-ui/core/colors";
+
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -183,14 +185,15 @@ export default function Nav() {
             <MenuIcon />
           </IconButton>
           <Typography
-            style={{ textDecoration: "none" }}
+            style={{
+              textDecoration: "none",
+              color: "black",
+            }}
             className={classes.title}
-            variant="h6"
+            variant="h5"
             noWrap
             component={Link}
             to="/"
-            color="textPrimary"
-            underline="none"
           >
             Lazaro Creations Shop
           </Typography>
