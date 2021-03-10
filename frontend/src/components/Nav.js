@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { StateContext, DispatchContext } from "../context";
+import "./Nav.css";
 
 // ##### MATERIAL UI #####
 import {
@@ -141,7 +142,12 @@ export default function Nav() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton aria-label="show new notifications" color="inherit">
+        <IconButton
+          aria-label="show new notifications"
+          color="inherit"
+          component={Link}
+          to="/cart"
+        >
           <Badge badgeContent={state.cartQty} color="secondary">
             <ShoppingCartIcon />
           </Badge>
