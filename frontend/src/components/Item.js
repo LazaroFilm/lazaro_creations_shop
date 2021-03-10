@@ -1,19 +1,18 @@
-import React from "react";
-import image from "../images/pro_level.jpg";
 import "./Item.css";
 
-// ##### MATERIAL-UI #####
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-// import Backdrop from "@material-ui/core/Backdrop";
 import {
+  Button,
+  Card,
   CardActionArea,
   CardActions,
   CardContent,
   CardMedia,
-  Button,
   Typography,
 } from "@material-ui/core";
+
+import React from "react";
+import image from "../images/pro_level.jpg";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   root: {

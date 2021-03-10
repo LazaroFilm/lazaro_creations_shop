@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { StateContext, DispatchContext } from "../context";
-import "./Nav.css";
-
-// ##### MATERIAL UI #####
+import {
+  AccountCircle,
+  Menu as MenuIcon,
+  MoreVert as MoreIcon,
+  Search as SearchIcon,
+  ShoppingCart as ShoppingCartIcon,
+} from "@material-ui/icons";
 import {
   AppBar,
   Badge,
-  // Link,
   IconButton,
   InputBase,
   Menu,
@@ -15,12 +15,11 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
+import { DispatchContext, StateContext } from "../context";
+import React, { useContext } from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import MoreIcon from "@material-ui/icons/MoreVert";
+
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -184,6 +183,7 @@ export default function Nav() {
             <MenuIcon />
           </IconButton>
           <Typography
+            style={{ textDecoration: "none" }}
             className={classes.title}
             variant="h6"
             noWrap
@@ -192,7 +192,7 @@ export default function Nav() {
             color="textPrimary"
             underline="none"
           >
-            Your Text Here
+            Lazaro Creations Shop
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

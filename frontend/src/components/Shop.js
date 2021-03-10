@@ -1,22 +1,19 @@
-import React, { useEffect, useState, useContext } from "react";
-import { DispatchContext } from "../context";
-// import Item from "./Item";
-
-// ##### MATERIAL UI #####
-import { makeStyles } from "@material-ui/core/styles";
 import {
   GridList,
   GridListTile,
   GridListTileBar,
-  ListSubheader,
   IconButton,
+  ListSubheader,
   Tooltip,
   isWidthUp,
   withWidth,
-  // Backdrop,
 } from "@material-ui/core";
+import React, { useContext, useEffect, useState } from "react";
+
+import { AddShoppingCart as AddShoppingCartIcon } from "@material-ui/icons";
+import { DispatchContext } from "../context";
 import { Skeleton } from "@material-ui/lab";
-import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
   backdrop: {
     zIndex: theme.zIndex.drawer + 1,
-    color: "#fff",
+    color: "#000",
   },
 }));
 
@@ -78,13 +75,14 @@ const useFetch = (url) => {
 
 function Shop(props) {
   const { dispatch } = useContext(DispatchContext);
+  const classes = useStyles();
 
+  // fetches the data for the items.
   const tileData = useFetch(
     // "nothing"
     // store items are stored on Heroku.
     "https://lazaro-creations-shop.herokuapp.com/api/getItem"
   );
-  const classes = useStyles();
 
   // template for a single skeleton item when loading.
   const LoadingGridTile = () => {
@@ -129,10 +127,6 @@ function Shop(props) {
 
   return (
     <div className={classes.root}>
-      {/* <Backdrop open={true}>
-        <Item />
-      </Backdrop> */}
-      {/* // TODO Make the frame wider and allow more than two columns */}
       <GridList cellHeight={180} className={classes.gridList} cols={cols()}>
         <GridListTile key="Subheader" cols={cols()} style={{ height: "auto" }}>
           <ListSubheader component="div"></ListSubheader>

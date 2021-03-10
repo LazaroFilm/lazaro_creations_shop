@@ -1,25 +1,32 @@
-import React, { useReducer, Fragment } from "react";
-
-import { StateContext, DispatchContext } from "./context";
-import reducer from "./reducer";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import "./App.css";
-import theme from "./theme";
-import Nav from "./components/Nav";
-import Drawer from "./components/Drawer";
-import Shop from "./components/Shop";
-import Item from "./components/Item";
-import Cart from "./components/Cart";
-import About from "./components/About";
-import NotFound from "./components/NotFound";
 
-// ##### MATERIAL UI #####
 import { Backdrop, Button, IconButton, Paper } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/core/styles";
-import Brightness4Icon from "@material-ui/icons/Brightness4";
+import { DispatchContext, StateContext } from "./context";
+import React, { Fragment, useReducer } from "react";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { ThemeProvider, makeStyles } from "@material-ui/core/styles";
+
+import About from "./components/About";
+import { Brightness4 as Brightness4Icon } from "@material-ui/icons";
+import Cart from "./components/Cart";
+import Drawer from "./components/Drawer";
+import Item from "./components/Item";
+import Nav from "./components/Nav";
+import NotFound from "./components/NotFound";
+import Shop from "./components/Shop";
+import reducer from "./reducer";
+import theme from "./theme";
+
+const useStyles = makeStyles((theme) => ({
+  backdrop: {
+    zIndex: theme.zIndex.appBar - 1,
+    color: "#fff",
+  },
+}));
 
 function App() {
+  const classes = useStyles();
+
   const initialState = {
     cartQty: 0,
     drawerState: false,
@@ -75,10 +82,14 @@ function App() {
                   <Route exact path="/" component={Shop} />
                   <Route
                     path="/item"
+                    // component={Item}
                     render={() => (
-                      <Backdrop open={true}>
-                        <Item />
-                      </Backdrop>
+                      <Fragment>
+                        <Shop />
+                        <Backdrop className={classes.backdrop} open={true}>
+                          <Item />
+                        </Backdrop>
+                      </Fragment>
                     )}
                   />
                   <Route path="/shop" component={Shop} />
