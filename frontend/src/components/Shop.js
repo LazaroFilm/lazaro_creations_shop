@@ -12,6 +12,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import { AddShoppingCart as AddShoppingCartIcon } from "@material-ui/icons";
 import { DispatchContext } from "../context";
+import { Link } from "react-router-dom";
 import { Skeleton } from "@material-ui/lab";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -135,7 +136,7 @@ function Shop(props) {
         design below */}
         {tileData ? (
           tileData.map((tile) => (
-            <GridListTile key={tile.title}>
+            <GridListTile key={tile.title} component={Link} to="/item">
               <img src={`/${tile.img}`} alt={tile.title} />
               <GridListTileBar
                 title={tile.title}
